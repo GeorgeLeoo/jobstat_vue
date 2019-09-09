@@ -28,7 +28,7 @@
         共
         <span id="total">{{stus.length}}</span>
         人，
-        <span id="rest">{{rests.length}}</span>
+        <span id="rest">{{stus.length-jobs.length}}</span>
         人未交
       </h3>
       <Row>
@@ -128,6 +128,11 @@ export default {
   },
   methods: {
     handleDownload() {
+      let loading = Loading.service({
+        fullscreen: true,
+        text: "努力压缩中，请稍后...",
+        background: "rgba(0, 0, 0, 0.8)"
+      });
       axios
         .get("/api/download", {
           params: {
@@ -137,6 +142,9 @@ export default {
         })
         .then(res => {
           console.log(res.data);
+          if (response.data) {
+            loading.close();
+          }
           if (res.data.code === 0) {
             this.download = res.data.data;
             this.$refs.download.click();

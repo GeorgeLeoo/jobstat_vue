@@ -66,7 +66,10 @@ export default {
       test_name: ""
     };
   },
-  componentDidMount() {},
+
+  componentDidMount() {
+
+  },
   mounted() {
     let loading = Loading.service({
       fullscreen: true,
