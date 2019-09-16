@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link rel="stylesheet" href="./bg.css">
-    <title>jobstat</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but jobstat doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link rel="stylesheet" href="./bg.css">
+  <title>jobstat</title>
+  <script>
+    (function (baseFontSize) {
+      const _baseFontSize = baseFontSize || 75;
+      const ua = navigator.userAgent;
+      const matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+      const isMacOs = navigator.appVersion.match(/(Mac)/gi);
+      const isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
+      let dpr = window.devicePixelRatio || 1;
+      if (!isMacOs && !isIos && !(matches && matches[1] > 534)) {
+        // 如果非iOS,Mac Os, 非Android4.3以上, dpr设为1;
+        dpr = 1;
+      }
+      const scale = 1 / dpr;
+      const metaEl = document.querySelector('meta[name="viewport"]');
+      if (!metaEl) {
+        metaEl = document.createElement('meta');
+        metaEl.setAttribute('name', 'viewport');
+        window.document.head.appendChild(metaEl);
+      }
+      metaEl.setAttribute('content',
+        'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / (750 / _baseFontSize) + 'px';
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but jobstat doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+</body>
+
 </html>

@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="wrapper">
-      <h1>作业统计系统 V2.0</h1>
+      <h1>作业统计系统 V2.1</h1>
       <div class="input-group">
         <label for="number">账号</label>
         <Input style="width: auto;" v-model="username" placeholder="请输入账号" />

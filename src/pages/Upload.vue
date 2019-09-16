@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!-- <div ref="content"> -->
-    <h1 class="title">作业提交系统 V2.0</h1>
+    <h1 class="title">作业提交系统 V2.1</h1>
     <div class="input-group">
       <label for="course">课程</label>
       <Select v-model="courseSelected" placeholder="请选择课程" @change="handleCourseChange">

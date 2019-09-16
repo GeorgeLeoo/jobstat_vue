@@ -1,4 +1,15 @@
+// yarn add -D webpack-bundle-analyzer
+
+// webpack-bundle-analyzer
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
+  // webpack-bundle-analyzer
+  configureWebpack: {
+    plugins: [
+      new BundleAnalyzerPlugin()
+    ]
+  },
   publicPath: './',
   devServer: {
     proxy: {
